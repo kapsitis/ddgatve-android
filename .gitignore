@@ -1,0 +1,13 @@
+/.metadata
+/Hello
+/appcompat_v7
+/*.R
+/*.png
+
+/ddgatve-mtable/assets
+/ddgatve-mtable/*.log
+
+/ddgatve-mtable/bin
+/ddgatve-mtable/gen
+/ddgatve-mtable/res/drawable-ldpi
+
