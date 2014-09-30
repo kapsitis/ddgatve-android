@@ -10,5 +10,7 @@
     <string name="title_activity_display_message">Pārbaude</string>
     <string name="button_back">Tālāk</string>
     <string name="enter">Enter</string>
+    <string name="title_activity_summary">SummaryActivity</string>
+    <string name="reset">Labi</string>
 
 </resources>

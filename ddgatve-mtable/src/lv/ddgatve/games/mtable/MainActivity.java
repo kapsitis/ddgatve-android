@@ -26,9 +26,8 @@ public class MainActivity extends ActionBarActivity {
 	public final static String EXTRA_MESSAGE = "lv.ddgatve.games.mtable.MESSAGE";
 	public final static String EXTRA_ANSWER = "lv.ddgatve.games.mtable.ANSWER";
 	public final static int ANSWER_CORRECT = 1;
-	private Questions q = new Questions(150);
 
-	private int totalCorrect = 0;
+	DataHolder app = DataHolder.getInstance();
 
 	private final int START_STATE = 0;
 	private final int TRUE_STATE = 1;
@@ -110,7 +109,7 @@ public class MainActivity extends ActionBarActivity {
 
 				Canvas canvas = holder.lockCanvas();
 				canvas.drawColor(Color.GRAY);
-				int count = totalCorrect;
+				int count = app.getTotalCorrect();
 				for (int jj = 0; jj < 5; jj++) {
 					for (int ii = 0; ii < 20; ii++) {
 						int ll = cellSize * ii + 3;
@@ -143,7 +142,7 @@ public class MainActivity extends ActionBarActivity {
 		});
 		TextView textView = (TextView) findViewById(R.id.name);
 		textView.setTextSize(30);
-		textView.setText(q.getQuestion());
+		textView.setText(app.getQuestion());
 
 		final View view = getWindow().getDecorView().getRootView();
 		view.getViewTreeObserver().addOnGlobalLayoutListener(
@@ -156,7 +155,7 @@ public class MainActivity extends ActionBarActivity {
 								setHeight(surface.getHeight());
 								TextView textView = (TextView) findViewById(R.id.name);
 								textView.setTextSize(30);
-								textView.setText(q.getQuestion());
+								textView.setText(app.getQuestion());
 							}
 						});
 					}
@@ -171,7 +170,7 @@ public class MainActivity extends ActionBarActivity {
 		setHeight(surface.getHeight());
 		TextView textView = (TextView) findViewById(R.id.name);
 		textView.setTextSize(30);
-		textView.setText(q.getQuestion());
+		textView.setText(app.getQuestion());
 		// Window win = getWindow();
 		// if (win != null) {
 		// win.setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_STATE_VISIBLE);
@@ -202,7 +201,7 @@ public class MainActivity extends ActionBarActivity {
 		EditText editText = (EditText) findViewById(R.id.edit_message);
 		String message = editText.getText().toString();
 		intent.putExtra(EXTRA_MESSAGE, message);
-		intent.putExtra(EXTRA_ANSWER, "" + q.getAnswer());
+		intent.putExtra(EXTRA_ANSWER, "" + app.getAnswer());
 		startActivityForResult(intent, ANSWER_CORRECT);
 	}
 
@@ -215,19 +214,23 @@ public class MainActivity extends ActionBarActivity {
 			if (resultCode == RESULT_OK) {
 				if (data.getBooleanExtra(DisplayMessageActivity.EXTRA_ANSWER,
 						true)) {
-					q.next();
-					totalCorrect++;
+					app.nextQuestion();
+					app.incrementTotalCorrect();
+					if (app.getTotalCorrect() >= 100) {
+						Intent intent = new Intent(this, SummaryActivity.class);
+						startActivity(intent);
+					}
 					STATE = TRUE_STATE;
 
 				} else {
-					q.next();
+					app.nextQuestion();
 					STATE = FALSE_STATE;
 				}
 
 			}
 			TextView t = (TextView) findViewById(R.id.name);
 			t.setTextSize(30);
-			t.setText(q.getQuestion());
+			t.setText(app.getQuestion());
 		}
 		(new Handler()).postDelayed(new Runnable() {
 
