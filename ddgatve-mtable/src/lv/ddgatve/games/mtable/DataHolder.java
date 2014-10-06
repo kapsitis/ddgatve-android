@@ -29,6 +29,10 @@ public class DataHolder {
 		return q.getQuestion();
 	}
 	
+	public int getQuestionType() { 
+		return q.getType();
+	}
+	
 	public void nextQuestion() {
 		q.next();
 	}

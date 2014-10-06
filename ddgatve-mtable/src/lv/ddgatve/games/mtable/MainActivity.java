@@ -49,6 +49,19 @@ public class MainActivity extends ActionBarActivity {
 		height = arg;
 	}
 
+	private void changeQuestion(TextView textView) {
+		textView.setTextSize(30);
+		int[] col = new int[] { Color.BLUE, Color.rgb(76, 196, 23),
+				Color.rgb(255, 102, 0), Color.BLUE, Color.RED };
+		int questionType = app.getQuestionType();
+		if (questionType >= 1 && questionType <= 4) {
+			textView.setTextColor(col[questionType]);
+		} else {
+			textView.setTextColor(Color.rgb(152, 175, 199));
+		}
+		textView.setText(app.getQuestion());
+	}
+
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
@@ -140,9 +153,7 @@ public class MainActivity extends ActionBarActivity {
 
 			}
 		});
-		TextView textView = (TextView) findViewById(R.id.name);
-		textView.setTextSize(30);
-		textView.setText(app.getQuestion());
+		changeQuestion((TextView) findViewById(R.id.name));
 
 		final View view = getWindow().getDecorView().getRootView();
 		view.getViewTreeObserver().addOnGlobalLayoutListener(
@@ -153,9 +164,7 @@ public class MainActivity extends ActionBarActivity {
 							public void run() {
 								setWidth(surface.getWidth());
 								setHeight(surface.getHeight());
-								TextView textView = (TextView) findViewById(R.id.name);
-								textView.setTextSize(30);
-								textView.setText(app.getQuestion());
+								changeQuestion((TextView) findViewById(R.id.name));
 							}
 						});
 					}
@@ -168,9 +177,8 @@ public class MainActivity extends ActionBarActivity {
 		SurfaceView surface = (SurfaceView) findViewById(R.id.surface);
 		setWidth(surface.getWidth());
 		setHeight(surface.getHeight());
-		TextView textView = (TextView) findViewById(R.id.name);
-		textView.setTextSize(30);
-		textView.setText(app.getQuestion());
+		changeQuestion((TextView) findViewById(R.id.name));
+
 		// Window win = getWindow();
 		// if (win != null) {
 		// win.setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_STATE_VISIBLE);
@@ -228,9 +236,7 @@ public class MainActivity extends ActionBarActivity {
 				}
 
 			}
-			TextView t = (TextView) findViewById(R.id.name);
-			t.setTextSize(30);
-			t.setText(app.getQuestion());
+			changeQuestion((TextView) findViewById(R.id.name));
 		}
 		(new Handler()).postDelayed(new Runnable() {
 

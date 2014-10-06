@@ -12,6 +12,11 @@
 /ddgatve-mtable/res/drawable-ldpi
 /ddgatve-mtable/.settings
 
-/MyFirstApp
+/MyFirstApp/bin
+/MyFirstApp/gen
+/MyFirstApp/res/drawable-ldpi
+/MyFirstApp/.settings
+
+/MySecondApp
 
 
