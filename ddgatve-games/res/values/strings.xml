@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">ddgatve-games</string>
+    <string name="hello_world">Sveicināta, pasaule!</string>
+    <string name="action_settings">Iestatījumi</string>
+    <string name="action_game15">Spēle 15</string>
+    <string name="title_activity_game15">Spēle 15</string>
+    <string name="welcome_game15">Game15Activity</string>
+
+</resources>
