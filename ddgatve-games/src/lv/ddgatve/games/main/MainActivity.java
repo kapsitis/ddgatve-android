@@ -1,4 +1,4 @@
-package lv.ddgatve.games;
+package lv.ddgatve.games.main;
 
 import lv.ddgatve.games.game15.Game15Activity;
 import android.support.v7.app.ActionBarActivity;

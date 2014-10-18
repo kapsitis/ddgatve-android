@@ -7,6 +7,7 @@ import java.util.Random;
 public class Game15Frame {
 
 	int[][] slots;
+	int[][] orderedSlots;
 
 	int rows;
 	int cols;
@@ -22,8 +23,15 @@ public class Game15Frame {
 
 	private Game15Frame(int rows, int cols) {
 		slots = new int[rows][cols];
+		orderedSlots = new int[rows][cols];
 		this.rows = rows;
 		this.cols = cols;
+		for (int i = 0; i < rows; i++) {
+			for (int j = 0; j < cols; j++) {
+				orderedSlots[i][j] = i * cols + j + 1;
+			}
+		}
+		orderedSlots[rows - 1][cols - 1] = 0;
 		scramble();
 	}
 
@@ -51,6 +59,18 @@ public class Game15Frame {
 		}
 	}
 
+	public void evenScramble() {
+		boolean isEven = false;
+		int inversions0 = countInversions(orderedSlots);
+		while (!isEven) {
+			scramble();
+			int inversions1 = countInversions(slots);
+			if ((inversions0 - inversions1)%2 == 0) {
+				isEven = true;
+			}
+		}
+	}
+
 	public List<Integer> find(int tile) {
 		int tileRow = -1;
 		int tileCol = -1;
@@ -64,21 +84,6 @@ public class Game15Frame {
 		}
 		return Arrays.asList(tileRow, tileCol);
 	}
-
-	// public void move(int tile) {
-	// List<Integer> pos = find(tile);
-	// int posX = pos.get(0);
-	// int posY = pos.get(1);
-	// List<Integer> empty = find(0);
-	// int emptyX = empty.get(0);
-	// int emptyY = empty.get(1);
-	// int distance = Math.round(Math.abs(posX - emptyX)
-	// + Math.abs(posY - emptyY));
-	// if (distance == 1) {
-	// slots[posX][posY] = 0;
-	// slots[emptyX][emptyY] = tile;
-	// }
-	// }
 
 	public void move(int position) {
 		int rowActive = position / cols;
@@ -94,10 +99,29 @@ public class Game15Frame {
 		}
 	}
 
+	public int countInversions(int[][] arg) {
+		int[] seq = new int[rows * cols];
+		int count = 0;
+		for (int i = 0; i < rows; i++) {
+			for (int j = 0; j < cols; j++) {
+				seq[count++] = slots[i][j];
+			}
+		}
+		int inversions = 0;
+		for (int m = 0; m < seq.length; m++) {
+			for (int n = 0; n < m; n++) {
+				if (seq[n] > seq[m]) {
+					inversions++;
+				}
+			}
+		}
+		return inversions;
+	}
+
 	public boolean isFinished() {
 		for (int i = 0; i < rows; i++) {
 			for (int j = 0; j < cols; j++) {
-				if (slots[i][j] != i * cols + j + 1) {
+				if (slots[i][j] != orderedSlots[i][j]) {
 					return false;
 				}
 			}

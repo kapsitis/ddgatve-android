@@ -1,6 +1,6 @@
 package lv.ddgatve.games.game15;
 
-import lv.ddgatve.games.R;
+import lv.ddgatve.games.main.R;
 import android.os.Bundle;
 import android.support.v7.app.ActionBarActivity;
 import android.view.Menu;
