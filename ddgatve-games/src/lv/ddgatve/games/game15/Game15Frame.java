@@ -22,7 +22,7 @@ public class Game15Frame {
 	}
 
 	private Game15Frame(int rows, int cols) {
-		slots = new int[rows][cols];
+
 		orderedSlots = new int[rows][cols];
 		this.rows = rows;
 		this.cols = cols;
@@ -32,7 +32,7 @@ public class Game15Frame {
 			}
 		}
 		orderedSlots[rows - 1][cols - 1] = 0;
-		scramble();
+		evenScramble();
 	}
 
 	public int getSlot(int row, int col) {
@@ -44,8 +44,9 @@ public class Game15Frame {
 	}
 
 	public void scramble() {
+		slots = new int[rows][cols];
 		Random r = new Random();
-
+		slots[rows - 1][cols - 1] = 16;
 		for (int i = 1; i <= rows * cols - 1; i++) {
 			boolean found = false;
 			while (!found) {
@@ -57,6 +58,7 @@ public class Game15Frame {
 				}
 			}
 		}
+		slots[rows - 1][cols - 1] = 0;
 	}
 
 	public void evenScramble() {
@@ -65,7 +67,7 @@ public class Game15Frame {
 		while (!isEven) {
 			scramble();
 			int inversions1 = countInversions(slots);
-			if ((inversions0 - inversions1)%2 == 0) {
+			if (!isFinished() && (inversions0 - inversions1) % 2 == 0) {
 				isEven = true;
 			}
 		}
@@ -101,14 +103,13 @@ public class Game15Frame {
 
 	public int countInversions(int[][] arg) {
 		int[] seq = new int[rows * cols];
-		int count = 0;
 		for (int i = 0; i < rows; i++) {
 			for (int j = 0; j < cols; j++) {
-				seq[count++] = slots[i][j];
+				seq[i * cols + j] = arg[i][j];
 			}
 		}
 		int inversions = 0;
-		for (int m = 0; m < seq.length; m++) {
+		for (int m = 0; m < seq.length - 1; m++) {
 			for (int n = 0; n < m; n++) {
 				if (seq[n] > seq[m]) {
 					inversions++;
