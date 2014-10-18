@@ -13,9 +13,9 @@ public class Game15Frame {
 
 	private static Game15Frame instance;
 
-	public static Game15Frame getInstance() {
+	public static Game15Frame getInstance(int rows, int cols) {
 		if (instance == null) {
-			instance = new Game15Frame(4, 4);
+			instance = new Game15Frame(2, 2);
 		}
 		return instance;
 	}

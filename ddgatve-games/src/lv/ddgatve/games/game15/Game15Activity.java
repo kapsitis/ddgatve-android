@@ -13,18 +13,20 @@ import android.widget.Toast;
 
 public class Game15Activity extends ActionBarActivity {
 
-	Game15Frame theFrame = Game15Frame.getInstance();
+	public static Game15Frame theFrame = Game15Frame.getInstance(2,2);
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_game15);
 
-		GridView gridview = (GridView) findViewById(R.id.gridview);
+		GridView gridView = (GridView) findViewById(R.id.gridview);
 		final ImageAdapter theAdapter =  new ImageAdapter(this);
-		gridview.setAdapter(theAdapter);
+		theAdapter.setDimensions(2, 2);
+		gridView.setNumColumns(2);
+		gridView.setAdapter(theAdapter);
 
-		gridview.setOnItemClickListener(new OnItemClickListener() {
+		gridView.setOnItemClickListener(new OnItemClickListener() {
 			public void onItemClick(AdapterView<?> parent, View v,
 					int position, long id) {
 				theFrame.move(position);
@@ -32,7 +34,7 @@ public class Game15Activity extends ActionBarActivity {
 				// Toast.makeText(Game15Activity.this, "" + position,
 				// Toast.LENGTH_SHORT).show();
 			}
-		});
+		}); 
 	}
 
 	@Override

@@ -10,13 +10,26 @@ import android.widget.ImageView;
 
 public class ImageAdapter extends BaseAdapter {
 	private Context mContext;
+	private int rows;
+	private int cols;
 
 	public ImageAdapter(Context c) {
 		mContext = c;
 	}
 
+	public void setDimensions(int rows, int cols) {
+		if (rows * cols > 16) {
+			rows = 4;
+			cols = 4;
+		} else {
+			this.rows = rows;
+			this.cols = cols;
+		}
+	}
+
 	public int getCount() {
-		return tiles.length;
+		// return tiles.length;
+		return rows * cols;
 	}
 
 	public Object getItem(int position) {
@@ -28,7 +41,7 @@ public class ImageAdapter extends BaseAdapter {
 	}
 
 	public View getView(int position, View convertView, ViewGroup parent) {
-		Game15Frame theFrame = Game15Frame.getInstance();
+		// Game15Frame theFrame = Game15Frame.getInstance();
 		ImageView imageView;
 		if (convertView == null) {
 
@@ -41,7 +54,8 @@ public class ImageAdapter extends BaseAdapter {
 			imageView = (ImageView) convertView;
 		}
 
-		imageView.setImageResource(tiles[theFrame.getSlotByNum(position)]);
+		imageView.setImageResource(tiles[Game15Activity.theFrame
+				.getSlotByNum(position)]);
 		return imageView;
 	}
 
