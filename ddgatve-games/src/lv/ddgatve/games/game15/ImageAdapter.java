@@ -11,22 +11,9 @@ import android.widget.ImageView;
 public class ImageAdapter extends BaseAdapter {
 	private Context mContext;
 
-	// private int rows;
-	// private int cols;
-
 	public ImageAdapter(Context c) {
 		mContext = c;
 	}
-
-	// public void setDimensions(int rows, int cols) {
-	// if (rows * cols > 16) {
-	// rows = 4;
-	// cols = 4;
-	// } else {
-	// this.rows = rows;
-	// this.cols = cols;
-	// }
-	// }
 
 	public int getCount() {
 		return Game15Activity.theFrame.getCount();

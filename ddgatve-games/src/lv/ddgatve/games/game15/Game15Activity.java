@@ -15,36 +15,34 @@ import android.widget.GridView;
 
 public class Game15Activity extends ActionBarActivity {
 
-	public static int ROWS = 4;
-	public static int COLS = 4;
+	public int ROWS = 2;
+	public int COLS = 2;
 	public static Game15Frame theFrame = Game15Frame.getInstance();
-	public int sqSize = 120; 
+	public int sqSize = 120;
 	public ImageAdapter theAdapter;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_game15);
-		
+
 		PickFrameDialogFragment dFragment = new PickFrameDialogFragment();
 		dFragment.setActivity(this);
 		FragmentManager fm = getFragmentManager();
 		dFragment.show(fm, "MyDF");
 
 		GridView gridView = (GridView) findViewById(R.id.gridview);
-		
-		sqSize = (int) TypedValue.applyDimension(
-				TypedValue.COMPLEX_UNIT_DIP, 280/COLS, getResources()
-				.getDisplayMetrics());
-		
+
+		sqSize = (int) TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP,
+				280 / COLS, getResources().getDisplayMetrics());
+
 		theAdapter = new ImageAdapter(this);
-//		theAdapter.setDimensions(ROWS, COLS);
-		gridView.setNumColumns(COLS);
-		gridView.setColumnWidth(sqSize);
-		ViewGroup.LayoutParams layoutParams = gridView.getLayoutParams();
-		layoutParams.height = ROWS*sqSize;
-		layoutParams.width = COLS*sqSize;
-		gridView.setAdapter(theAdapter);
+//		gridView.setNumColumns(COLS);
+//		gridView.setColumnWidth(sqSize);
+//		ViewGroup.LayoutParams layoutParams = gridView.getLayoutParams();
+//		layoutParams.height = ROWS * sqSize;
+//		layoutParams.width = COLS * sqSize;
+//		gridView.setAdapter(theAdapter);
 
 		gridView.setOnItemClickListener(new OnItemClickListener() {
 			public void onItemClick(AdapterView<?> parent, View v,
@@ -53,6 +51,24 @@ public class Game15Activity extends ActionBarActivity {
 				theAdapter.notifyDataSetChanged();
 			}
 		});
+	}
+
+	public void resetGame(int rows, int cols) {
+		theFrame.erase();
+		this.ROWS = rows;
+		this.COLS = cols;
+		theFrame.initialize(rows, cols);
+		sqSize = (int) TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP,
+				280 / cols, getResources().getDisplayMetrics());
+		GridView gridView = (GridView) findViewById(R.id.gridview);
+		gridView.setNumColumns(COLS);
+		gridView.setColumnWidth(sqSize);
+		ViewGroup.LayoutParams layoutParams = gridView.getLayoutParams();
+		layoutParams.height = ROWS * sqSize;
+		layoutParams.width = COLS * sqSize;
+		gridView.setAdapter(theAdapter);
+
+		theAdapter.notifyDataSetChanged();
 	}
 
 	@Override

@@ -37,27 +37,6 @@ public class Game15Frame {
 		evenScramble();
 	}
 
-	// public static Game15Frame getInstance(int rows, int cols) {
-	// if (instance == null) {
-	// instance = new Game15Frame(rows, cols);
-	// }
-	// return instance;
-	// }
-	//
-	// private Game15Frame(int rows, int cols) {
-	//
-	// orderedSlots = new int[rows][cols];
-	// this.rows = rows;
-	// this.cols = cols;
-	// for (int i = 0; i < rows; i++) {
-	// for (int j = 0; j < cols; j++) {
-	// orderedSlots[i][j] = i * cols + j + 1;
-	// }
-	// }
-	// orderedSlots[rows - 1][cols - 1] = 0;
-	// evenScramble();
-	// }
-
 	public int getCount() {
 		if (isEmpty()) {
 			return 1;

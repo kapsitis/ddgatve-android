@@ -20,8 +20,8 @@ public class PickFrameDialogFragment extends DialogFragment {
         builder.setTitle(R.string.dialog_pick_frame)
                .setItems(R.array.field_types, new DialogInterface.OnClickListener() {
                    public void onClick(DialogInterface dialog, int which) {
-                	   Game15Activity.theFrame.initialize(4, 4);
-                	   activity.theAdapter.notifyDataSetChanged();
+//                	   Game15Activity.theFrame.initialize(4, 4);
+                	   activity.resetGame(which+2, which+2);
                }
         });
         return builder.create();
