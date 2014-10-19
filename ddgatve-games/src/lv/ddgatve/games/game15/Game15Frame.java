@@ -14,15 +14,17 @@ public class Game15Frame {
 
 	private static Game15Frame instance;
 
-	public static Game15Frame getInstance(int rows, int cols) {
+	private Game15Frame() {
+	}
+
+	public static Game15Frame getInstance() {
 		if (instance == null) {
-			instance = new Game15Frame(rows, cols);
+			instance = new Game15Frame();
 		}
 		return instance;
 	}
 
-	private Game15Frame(int rows, int cols) {
-
+	public void initialize(int rows, int cols) {
 		orderedSlots = new int[rows][cols];
 		this.rows = rows;
 		this.cols = cols;
@@ -33,6 +35,35 @@ public class Game15Frame {
 		}
 		orderedSlots[rows - 1][cols - 1] = 0;
 		evenScramble();
+	}
+
+	// public static Game15Frame getInstance(int rows, int cols) {
+	// if (instance == null) {
+	// instance = new Game15Frame(rows, cols);
+	// }
+	// return instance;
+	// }
+	//
+	// private Game15Frame(int rows, int cols) {
+	//
+	// orderedSlots = new int[rows][cols];
+	// this.rows = rows;
+	// this.cols = cols;
+	// for (int i = 0; i < rows; i++) {
+	// for (int j = 0; j < cols; j++) {
+	// orderedSlots[i][j] = i * cols + j + 1;
+	// }
+	// }
+	// orderedSlots[rows - 1][cols - 1] = 0;
+	// evenScramble();
+	// }
+
+	public int getCount() {
+		if (isEmpty()) {
+			return 1;
+		} else {
+			return rows * cols;
+		}
 	}
 
 	public int getSlot(int row, int col) {
@@ -128,5 +159,13 @@ public class Game15Frame {
 			}
 		}
 		return true;
+	}
+
+	public boolean isEmpty() {
+		return slots == null;
+	}
+
+	public void erase() {
+		slots = null;
 	}
 }

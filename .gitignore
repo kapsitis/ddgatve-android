@@ -13,7 +13,9 @@
 /ddgatve-mtable/.settings
 
 /ddgatve-games/assets
+/ddgatve-games/res/drawable-ldpi
 
+/icon-generation/.Rhistory
 /icon-generation/*.png
 /icon-generation/*.jpg
 

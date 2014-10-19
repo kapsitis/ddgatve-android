@@ -10,25 +10,26 @@ import android.widget.ImageView;
 
 public class ImageAdapter extends BaseAdapter {
 	private Context mContext;
-	private int rows;
-	private int cols;
+
+	// private int rows;
+	// private int cols;
 
 	public ImageAdapter(Context c) {
 		mContext = c;
 	}
 
-	public void setDimensions(int rows, int cols) {
-		if (rows * cols > 16) {
-			rows = 4;
-			cols = 4;
-		} else {
-			this.rows = rows;
-			this.cols = cols;
-		}
-	}
+	// public void setDimensions(int rows, int cols) {
+	// if (rows * cols > 16) {
+	// rows = 4;
+	// cols = 4;
+	// } else {
+	// this.rows = rows;
+	// this.cols = cols;
+	// }
+	// }
 
 	public int getCount() {
-		return rows * cols;
+		return Game15Activity.theFrame.getCount();
 	}
 
 	public Object getItem(int position) {
@@ -44,18 +45,23 @@ public class ImageAdapter extends BaseAdapter {
 		if (convertView == null) {
 			imageView = new ImageView(mContext);
 
-			int sqSize = ((Game15Activity)mContext).sqSize;
-			GridView.LayoutParams param =new GridView.LayoutParams(sqSize, sqSize);
+			int sqSize = ((Game15Activity) mContext).sqSize;
+			GridView.LayoutParams param = new GridView.LayoutParams(sqSize,
+					sqSize);
 			imageView.setLayoutParams(param);
 			imageView.setScaleType(ImageView.ScaleType.CENTER_CROP);
-			imageView.setPadding(0,0,0,0);
-			
+			imageView.setPadding(0, 0, 0, 0);
+
 		} else {
 			imageView = (ImageView) convertView;
 		}
 
-		imageView.setImageResource(tiles[Game15Activity.theFrame
-				.getSlotByNum(position)]);
+		if (Game15Activity.theFrame.isEmpty()) {
+			imageView.setImageResource(R.drawable.blank);
+		} else {
+			imageView.setImageResource(tiles[Game15Activity.theFrame
+					.getSlotByNum(position)]);
+		}
 		return imageView;
 	}
 

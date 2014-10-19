@@ -15,5 +15,14 @@
     <string name="box20_alt">box20</string>
     <string name="box21_alt">box21</string>
     <string name="box22_alt">box22</string>
+    <string name="dialog_pick_frame">Spēles laukums?</string>
+    <string name="f2_2">2x2</string>
+    <string name="f3_3">3x3</string>
+
+    <string-array name="field_types">
+        <item>2×2</item>
+        <item>3×3</item>
+        <item>4×4</item>
+    </string-array>
 
 </resources>
