@@ -1,13 +1,78 @@
 <?xml version="1.0" encoding="utf-8"?>
-<GridView xmlns:android="http://schemas.android.com/apk/res/android"
-    android:id="@+id/gridview"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:columnWidth="120dp"
-    android:numColumns="4"
-    android:verticalSpacing="10dp"
-    android:horizontalSpacing="10dp"
-    android:stretchMode="columnWidth"
-    android:gravity="center"
-/>
+<!-- <GridView xmlns:android="http://schemas.android.com/apk/res/android" -->
+<!-- android:id="@+id/gridview" -->
+<!-- android:layout_width="match_parent" -->
+<!-- android:layout_height="match_parent" -->
+<!-- android:verticalSpacing="0px" -->
+<!-- android:horizontalSpacing="0px" -->
+<!-- android:stretchMode="none" -->
+<!-- android:gravity="center" -->
+<!-- /> -->
 
+<TableLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="328dp"
+    android:layout_height="match_parent"
+    android:stretchColumns="1" >
+
+    <TableRow>
+        <ImageView
+            android:layout_width="24dp"
+            android:layout_height="wrap_content"
+            android:contentDescription="@string/box00_alt"
+            android:src="@drawable/wooden_box00" />
+        <ImageView
+            android:layout_width="280dp"
+            android:layout_height="24dp"
+            android:scaleType="fitXY"
+            android:contentDescription="@string/box01_alt"
+            android:src="@drawable/wooden_box01" />
+        <ImageView
+            android:layout_width="24dp"
+            android:layout_height="wrap_content"
+            android:contentDescription="@string/box02_alt"
+            android:src="@drawable/wooden_box02" />
+    </TableRow>
+
+    <TableRow>
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="280dp"
+            android:scaleType="fitXY"
+            android:contentDescription="@string/box10_alt"
+            android:src="@drawable/wooden_box10" />
+        <GridView
+            android:id="@+id/gridview"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:gravity="center"
+            android:horizontalSpacing="0px"
+            android:stretchMode="none"
+            android:verticalSpacing="0px" />
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="280dp"
+            android:scaleType="fitXY"
+            android:contentDescription="@string/box12_alt"
+            android:src="@drawable/wooden_box12" />
+    </TableRow>
+
+    <TableRow>
+        <ImageView
+            android:layout_width="24dp"
+            android:layout_height="24dp"
+            android:contentDescription="@string/box20_alt"
+            android:src="@drawable/wooden_box20" />
+        <ImageView
+            android:layout_width="280dp"
+            android:layout_height="24dp"
+            android:scaleType="fitXY"
+            android:contentDescription="@string/box21_alt"
+            android:src="@drawable/wooden_box21" />
+        <ImageView
+            android:layout_width="24dp"
+            android:layout_height="24dp"
+            android:contentDescription="@string/box22_alt"
+            android:src="@drawable/wooden_box22" />
+    </TableRow>
+
+</TableLayout>

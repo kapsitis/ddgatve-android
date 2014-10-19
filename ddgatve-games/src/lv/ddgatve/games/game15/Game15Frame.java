@@ -16,7 +16,7 @@ public class Game15Frame {
 
 	public static Game15Frame getInstance(int rows, int cols) {
 		if (instance == null) {
-			instance = new Game15Frame(2, 2);
+			instance = new Game15Frame(rows, cols);
 		}
 		return instance;
 	}
@@ -46,7 +46,7 @@ public class Game15Frame {
 	public void scramble() {
 		slots = new int[rows][cols];
 		Random r = new Random();
-		slots[rows - 1][cols - 1] = 16;
+		slots[rows - 1][cols - 1] = -1;
 		for (int i = 1; i <= rows * cols - 1; i++) {
 			boolean found = false;
 			while (!found) {

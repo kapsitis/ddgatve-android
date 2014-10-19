@@ -12,6 +12,11 @@
 /ddgatve-mtable/res/drawable-ldpi
 /ddgatve-mtable/.settings
 
+/ddgatve-games/assets
+
+/icon-generation/*.png
+/icon-generation/*.jpg
+
 /lv.ddgatve.games
 
 /MyFirstApp/bin

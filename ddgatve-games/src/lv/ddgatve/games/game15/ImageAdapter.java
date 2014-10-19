@@ -28,7 +28,6 @@ public class ImageAdapter extends BaseAdapter {
 	}
 
 	public int getCount() {
-		// return tiles.length;
 		return rows * cols;
 	}
 
@@ -41,15 +40,16 @@ public class ImageAdapter extends BaseAdapter {
 	}
 
 	public View getView(int position, View convertView, ViewGroup parent) {
-		// Game15Frame theFrame = Game15Frame.getInstance();
 		ImageView imageView;
 		if (convertView == null) {
-
 			imageView = new ImageView(mContext);
 
-			imageView.setLayoutParams(new GridView.LayoutParams(200, 200));
+			int sqSize = ((Game15Activity)mContext).sqSize;
+			GridView.LayoutParams param =new GridView.LayoutParams(sqSize, sqSize);
+			imageView.setLayoutParams(param);
 			imageView.setScaleType(ImageView.ScaleType.CENTER_CROP);
-			imageView.setPadding(2, 2, 2, 2);
+			imageView.setPadding(0,0,0,0);
+			
 		} else {
 			imageView = (ImageView) convertView;
 		}

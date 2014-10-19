@@ -7,5 +7,13 @@
     <string name="action_game15">Spēle 15</string>
     <string name="title_activity_game15">Spēle 15</string>
     <string name="welcome_game15">Game15Activity</string>
+    <string name="box00_alt">box00</string>
+    <string name="box01_alt">box01</string>
+    <string name="box02_alt">box02</string>
+    <string name="box10_alt">box10</string>
+    <string name="box12_alt">box12</string>
+    <string name="box20_alt">box20</string>
+    <string name="box21_alt">box21</string>
+    <string name="box22_alt">box22</string>
 
 </resources>

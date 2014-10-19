@@ -3,17 +3,21 @@ package lv.ddgatve.games.game15;
 import lv.ddgatve.games.main.R;
 import android.os.Bundle;
 import android.support.v7.app.ActionBarActivity;
+import android.util.TypedValue;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.AdapterView.OnItemClickListener;
 import android.widget.GridView;
-import android.widget.Toast;
 
 public class Game15Activity extends ActionBarActivity {
 
-	public static Game15Frame theFrame = Game15Frame.getInstance(2,2);
+	public static final int ROWS = 3;
+	public static final int COLS = 3;
+	public static Game15Frame theFrame = Game15Frame.getInstance(ROWS, COLS);
+	public int sqSize = 120; 
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -21,9 +25,18 @@ public class Game15Activity extends ActionBarActivity {
 		setContentView(R.layout.activity_game15);
 
 		GridView gridView = (GridView) findViewById(R.id.gridview);
-		final ImageAdapter theAdapter =  new ImageAdapter(this);
-		theAdapter.setDimensions(2, 2);
-		gridView.setNumColumns(2);
+		
+		sqSize = (int) TypedValue.applyDimension(
+				TypedValue.COMPLEX_UNIT_DIP, 280/COLS, getResources()
+				.getDisplayMetrics());
+		
+		final ImageAdapter theAdapter = new ImageAdapter(this);
+		theAdapter.setDimensions(ROWS, COLS);
+		gridView.setNumColumns(COLS);
+		gridView.setColumnWidth(sqSize);
+		ViewGroup.LayoutParams layoutParams = gridView.getLayoutParams();
+		layoutParams.height = ROWS*sqSize;
+		layoutParams.width = COLS*sqSize;
 		gridView.setAdapter(theAdapter);
 
 		gridView.setOnItemClickListener(new OnItemClickListener() {
@@ -31,24 +44,18 @@ public class Game15Activity extends ActionBarActivity {
 					int position, long id) {
 				theFrame.move(position);
 				theAdapter.notifyDataSetChanged();
-				// Toast.makeText(Game15Activity.this, "" + position,
-				// Toast.LENGTH_SHORT).show();
 			}
-		}); 
+		});
 	}
 
 	@Override
 	public boolean onCreateOptionsMenu(Menu menu) {
-		// Inflate the menu; this adds items to the action bar if it is present.
 		getMenuInflater().inflate(R.menu.game15, menu);
 		return true;
 	}
 
 	@Override
 	public boolean onOptionsItemSelected(MenuItem item) {
-		// Handle action bar item clicks here. The action bar will
-		// automatically handle clicks on the Home/Up button, so long
-		// as you specify a parent activity in AndroidManifest.xml.
 		int id = item.getItemId();
 		if (id == R.id.action_settings) {
 			return true;
