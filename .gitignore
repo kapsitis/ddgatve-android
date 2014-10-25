@@ -15,6 +15,12 @@
 /ddgatve-games/assets
 /ddgatve-games/res/drawable-ldpi
 
+/DDGatveMath/.settings
+/DDGatveMath/assets
+/DDGatveMath/bin
+/DDGatveMath/gen
+/DDGatveMath/res/drawable-ldpi
+
 /icon-generation/.Rhistory
 /icon-generation/*.png
 /icon-generation/*.jpg
