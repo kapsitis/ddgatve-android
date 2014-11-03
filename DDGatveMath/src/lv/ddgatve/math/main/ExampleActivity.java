@@ -63,8 +63,6 @@ public class ExampleActivity extends Activity implements ConnectionCallbacks,
 	}
 
 	protected void onCreate(Bundle savedInstanceState) {
-		// super.onCreate(savedInstanceState);
-		// setContentView(R.layout.activity_example);
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_example);
 

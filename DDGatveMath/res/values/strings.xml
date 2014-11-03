@@ -8,4 +8,5 @@
 	<string name="action_signin">Sign In</string>
 	<string name="sign_in_message">Use your Google+ Credentials</string>
 	<string name="sign_out">Sign Out</string>
+	<string name="get_json">Get JSON</string>
 </resources>

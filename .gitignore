@@ -4,6 +4,10 @@
 /*.R
 /*.png
 
+/applet-graphics/bin
+/applet-graphics/target
+
+
 /ddgatve-mtable/assets
 /ddgatve-mtable/*.log
 
