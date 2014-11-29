@@ -1,0 +1,154 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical" >
+
+    <TextView
+        android:id="@+id/text_register_message"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/text_register_message"
+        android:textSize="@dimen/font_size" />
+
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="20dp"
+        android:layout_marginTop="5dp"
+        android:orientation="horizontal" >
+
+        <TextView
+            android:id="@+id/text_first_name"
+            android:layout_width="@dimen/formlabel_width"
+            android:layout_height="wrap_content"
+            android:text="@string/text_first_name"
+            android:textSize="@dimen/font_size" />
+
+        <EditText
+            android:id="@+id/first_name"
+            android:layout_width="@dimen/formfield_width"
+            android:layout_height="wrap_content"
+            android:background="@drawable/edittext_back"
+            android:digits="@string/alpha_latin_latvian"
+            android:hint="@string/alpha_letters"
+            android:textSize="@dimen/font_size" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="20dp"
+        android:layout_marginTop="5dp"
+        android:orientation="horizontal" >
+
+        <TextView
+            android:id="@+id/text_last_name"
+            android:layout_width="@dimen/formlabel_width"
+            android:layout_height="wrap_content"
+            android:text="@string/text_last_name"
+            android:textSize="@dimen/font_size" />
+
+        <EditText
+            android:id="@+id/last_name"
+            android:layout_width="@dimen/formfield_width"
+            android:layout_height="wrap_content"
+            android:background="@drawable/edittext_back"
+            android:digits="@string/alpha_latin_latvian"
+            android:hint="@string/alpha_letters"
+            android:textSize="@dimen/font_size" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="20dp"
+        android:layout_marginTop="5dp"
+        android:orientation="horizontal" >
+
+        <TextView
+            android:id="@+id/text_email"
+            android:layout_width="@dimen/formlabel_width"
+            android:layout_height="wrap_content"
+            android:text="@string/text_email"
+            android:textSize="@dimen/font_size" />
+
+        <EditText
+            android:id="@+id/email"
+            android:layout_width="@dimen/formfield_width"
+            android:layout_height="wrap_content"
+            android:background="@drawable/edittext_back"
+            android:digits="@string/alpha_latin_latvian"
+            android:hint="@string/alpha_letters"
+            android:textSize="@dimen/font_size" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="20dp"
+        android:layout_marginTop="5dp"
+        android:orientation="horizontal" >
+
+        <TextView
+            android:id="@+id/text_password1"
+            android:layout_width="@dimen/formlabel_width"
+            android:layout_height="wrap_content"
+            android:text="@string/text_password1"
+            android:textSize="@dimen/font_size" />
+
+        <EditText
+            android:id="@+id/password1"
+            android:layout_width="@dimen/formfield_width"
+            android:layout_height="wrap_content"
+            android:background="@drawable/edittext_back"
+            android:digits="@string/alpha_latin_latvian"
+            android:hint="@string/alpha_letters"
+            android:textSize="@dimen/font_size" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="20dp"
+        android:layout_marginTop="5dp"
+        android:orientation="horizontal" >
+
+        <TextView
+            android:id="@+id/text_password2"
+            android:layout_width="@dimen/formlabel_width"
+            android:layout_height="wrap_content"
+            android:text="@string/text_password2"
+            android:textSize="@dimen/font_size" />
+
+        <EditText
+            android:id="@+id/password2"
+            android:layout_width="@dimen/formfield_width"
+            android:layout_height="wrap_content"
+            android:background="@drawable/edittext_back"
+            android:digits="@string/alpha_latin_latvian"
+            android:hint="@string/alpha_letters"
+            android:textSize="@dimen/font_size" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="20dp"
+        android:layout_marginTop="5dp"
+        android:orientation="horizontal" >
+
+        <Button
+            android:id="@+id/send_register"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:onClick="sendRegister"
+            android:text="@string/button_send_register" />
+
+        <TextView
+            android:id="@+id/register_success_message"
+            android:layout_width="@dimen/formlabel_width"
+            android:layout_height="wrap_content"
+            android:textSize="@dimen/font_size" />
+    </LinearLayout>
+
+</LinearLayout>

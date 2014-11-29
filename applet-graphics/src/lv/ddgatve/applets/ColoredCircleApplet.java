@@ -14,7 +14,7 @@ public class ColoredCircleApplet extends JApplet {
 
 		g.setColor(Color.white);
 		g.fillRect(0, 0, WIDTH, HEIGHT);
-		g.setColor(Color.red);
+		g.setColor(Color.BLUE);
 
 		g.fillOval((WIDTH / 2 - RADIUS), (HEIGHT / 2 - RADIUS), RADIUS * 2,
 				RADIUS * 2);

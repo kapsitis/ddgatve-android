@@ -23,9 +23,11 @@ import android.app.ProgressDialog;
 import android.content.DialogInterface;
 import android.content.DialogInterface.OnCancelListener;
 import android.content.Intent;
+import android.graphics.Color;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.v7.app.ActionBarActivity;
+import android.text.Html;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -38,7 +40,17 @@ public class MainActivity extends ActionBarActivity {
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_main);
-
+		TextView textView = (TextView) findViewById(R.id.main_message);
+		textView.setTextSize(25f);
+		textView.setText(R.string.hello_world);
+//		String text = "This is <font color='red'>red</font>. This is <font color='blue'>blue</font>.";
+//		textView.setText(Html.fromHtml(text), TextView.BufferType.SPANNABLE);
+		
+		TextView textDiamondsProgress = (TextView) findViewById(R.id.diamonds_progress);
+		textDiamondsProgress.setTextSize(25f);
+		textDiamondsProgress.setTextColor(Color.rgb(43, 115, 56));
+		textDiamondsProgress.setText("\u2666 \u2666 \u2662 \u2662");
+		
 	}
 
 	@Override
@@ -63,6 +75,10 @@ public class MainActivity extends ActionBarActivity {
 		}
 		if (id == R.id.action_signin) {
 			Intent intent = new Intent(this, ExampleActivity.class);
+			startActivity(intent);
+		}
+		if (id == R.id.action_register) {
+			Intent intent = new Intent(this, RegisterActivity.class);
 			startActivity(intent);
 		}
 		return super.onOptionsItemSelected(item);

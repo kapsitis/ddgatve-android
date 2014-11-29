@@ -35,6 +35,10 @@
             android:name=".ExampleActivity"
             android:label="@string/title_activity_example" >
         </activity>
+        <activity
+            android:name=".RegisterActivity"
+            android:label="@string/title_activity_register" >
+        </activity>
     </application>
 
 </manifest>

@@ -25,6 +25,10 @@
 /DDGatveMath/gen
 /DDGatveMath/res/drawable-ldpi
 
+/Fighting1/
+/fighting-game/
+/fighting2/
+
 /icon-generation/.Rhistory
 /icon-generation/*.png
 /icon-generation/*.jpg
@@ -40,4 +44,5 @@
 
 /plain-hello/bin
 
-
+/SpinnerActivityTest/bin/
+/SpinnerActivityTest/gen/

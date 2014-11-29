@@ -46,7 +46,7 @@ public class ExampleActivity extends Activity implements ConnectionCallbacks,
 
 	/* A helper method to resolve the current ConnectionResult error. */
 	private void resolveSignInError() {
-		if (mConnectionResult.hasResolution()) {
+		if (mConnectionResult != null && mConnectionResult.hasResolution()) {
 			try {
 				mIntentInProgress = true;
 				startIntentSenderForResult(mConnectionResult.getResolution()
@@ -56,10 +56,11 @@ public class ExampleActivity extends Activity implements ConnectionCallbacks,
 				// default
 				// state and attempt to connect to get an updated
 				// ConnectionResult.
-				mIntentInProgress = false;
-				mGoogleApiClient.connect();
+
 			}
 		}
+		mIntentInProgress = false;
+		mGoogleApiClient.connect();
 	}
 
 	protected void onCreate(Bundle savedInstanceState) {

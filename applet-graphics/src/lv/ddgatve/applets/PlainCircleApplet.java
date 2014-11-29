@@ -1,7 +1,9 @@
 package lv.ddgatve.applets;
 
+import java.awt.Color;
+import java.awt.Graphics;
+
 import javax.swing.JApplet;
-import java.awt.*;
 
 // assume that the drawing area is 150 by 150
 public class PlainCircleApplet extends JApplet {
