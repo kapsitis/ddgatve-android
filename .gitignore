@@ -3,6 +3,8 @@
 /appcompat_v7
 /*.R
 /*.png
+*.webp
+*/.idea/*
 
 /applet-graphics/bin
 /applet-graphics/target
@@ -46,3 +48,6 @@
 
 /SpinnerActivityTest/bin/
 /SpinnerActivityTest/gen/
+.DS_Store
+
+
